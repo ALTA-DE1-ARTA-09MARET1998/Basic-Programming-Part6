@@ -1,28 +1,16 @@
 def find_max_sum_sub_array(k, arr):
-
-    if k <= 0 or k > len(arr):
-            return None
     
-    highest_sum = float('-inf')
-    sums = sum(arr[:k])
+    # if k <= 0 or k > len(arr):
+    #         return None
+    
+    # highest_sum = float('-inf')
+    # sums = sum(arr[:k])
 
     for i in range(k, len(arr)):
         sums += arr[i] - arr [i - k]
         highest_sum = max(highest_sum, sums)
 
         return highest_sum
-
-    # sums = []
-    # for j, k in enumerate(arr):
-    #     sums.append(k)
-    #     for i in range (j + 1, len(arr)):
-    #         k += arr[i]
-    #         sums.append(k)
-    #     if all(i < 0 for i in arr) or not sums:
-    #         return 0
-    #     else:
-    #         max_sum = max(sums) 
-    #         return max_sum
 
 if __name__ == '__main__':
     print(find_max_sum_sub_array(3, [2, 1, 5, 1, 3, 2])) # 9
